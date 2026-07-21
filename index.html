@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayesha Abid | Full-Stack Developer & AI Integration Specialist</title>
+  <meta name="description"
+    content="Full-Stack Developer & AI Integration Specialist building scalable, production-ready web applications with React.js, Next.js, Node.js and AI-powered automation for global clients.">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/enhance.css">
+  <link rel="stylesheet" href="/modern3d.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">AYESHA ABID</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#career" class="nav-link">Career</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#expertise" class="nav-link">Expertise</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#blog" class="nav-link">Blog</a></li>
+        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <script>
+  // Force test logic direct in HTML
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('navMenu');
+    
+    if (toggle && menu) {
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation(); // Doosre clicks ko rokne ke liye
+        menu.classList.toggle('active');
+        toggle.classList.toggle('active');
+        console.log("Hamburger Clicked! Active class status:", menu.classList.contains('active'));
+      });
+    } else {
+      console.log("Elements not found! Toggle:", toggle, "Menu:", menu);
+    }
+  });
+</script>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <canvas id="hero-3d-canvas"></canvas>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-greeting">Hi, I'm</p>
+        <h1 class="hero-name">Ayesha Abid</h1>
+        <h2 class="hero-title">Full-Stack Developer & AI Integration Specialist</h2>
+        <p class="hero-description">
+          I build scalable, AI-powered web applications — from architecture to deployment — using
+          React.js, Next.js, and Node.js. I combine full-stack engineering with business acumen to
+          turn ideas into production-ready products that drive real growth.<br>
+          Let's build something that scales.
+        </p>
+   <div class="hero-buttons">
+    <!-- Yeh direct HTML link modal ko target karega bina kisi JS ke -->
+    <a href="#contactModal" class="btn btn-primary" id="hireMeBtn">Hire Me</a>
+    <a href="https://drive.google.com/file/d/1LTy4ZGh4cW8YeGnHI6e0TUO3D5z3Ct0e/view?usp=share_link" class="btn btn-secondary" target="_blank">Download CV</a>
+</div>
+
+<!-- Luxury Contact Modal (Popup) -->
+<div id="contactModal" class="custom-modal">
+    <div class="modal-content">
+        <!-- Close button modal ko close karne ke liye URL reset karega -->
+        <a href="#" class="close-modal">&times;</a>
+        <h3 class="modal-title">Let's Build Something Great Together</h3>
+        <p class="modal-subtitle">Directly reach out to me via phone or WhatsApp</p>
+        
+        <div class="contact-card-options">
+          <!-- WhatsApp Option -->
+          <a href="https://wa.me/923004278157?text=Hi%20Ayesha,%20I%20visited%20your%20portfolio%20and%20want%20to%20hire%20you." target="_blank" class="modal-card whatsapp-card">
+            <div class="card-icon">💬</div>
+            <h4>Chat on WhatsApp</h4>
+            <p>Instant Response</p>
+          </a>
+
+          <!-- Direct Call Option -->
+          <a href="tel:+923004278157" class="modal-card call-card">
+            <div class="card-icon">📞</div>
+            <h4>Direct Call / SMS</h4>
+            <p>+92 300 4278157</p>
+          </a>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+    <div class="hero-social">
+      <a href="https://www.linkedin.com/in/ayesha-abid33/" class="social-link" aria-label="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+          <rect width="4" height="12" x="2" y="9"></rect>
+          <circle cx="4" cy="4" r="2"></circle>
+        </svg>
+      </a>
+      <a href="#" class="social-link" aria-label="Twitter/X">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+          <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+        </svg>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61589688999279&sk=directory_contact_info&fb_profile_edit_entry_point=%7B%22feature%22%3A%22profile_directory%22%2C%22click_point%22%3A%22pencil_edit_directory_section%22%2C%22additional_metadata%22%3A%7B%22section_type%22%3A%22contact_info%22%7D%7D" class="social-link" aria-label="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+        </svg>
+      </a>
+      <a href="#" class="social-link" aria-label="Fiverr">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-.85c-.546 0-.84.41-.84 1.092v2.466h-1.61v-3.558h-.684c-.547 0-.84.41-.84 1.092v2.466h-1.61v-4.874h1.61v.74c.264-.574.626-.74 1.163-.74h1.972v.74c.264-.574.625-.74 1.162-.74h1.527v1.316zm-6.786 1.501h-3.359c.088.546.43.858 1.006.858.43 0 .732-.175.966-.546l1.324.654c-.478.806-1.324 1.25-2.376 1.25-1.61 0-2.674-1.106-2.674-2.554 0-1.434 1.078-2.553 2.586-2.553 1.478 0 2.527 1.163 2.527 2.612v.279zm-2.529-1.705c-.473 0-.808.307-.896.75h1.795c-.089-.443-.428-.75-.9-.75zm-3.983 3.183h-1.61V9.093h1.61v6.17zm-2.674-5.07a.928.928 0 0 0-.928-.927.928.928 0 1 0 0 1.855.928.928 0 0 0 .928-.928zm-4.08 5.07h-1.61v-3.558h-.684c-.547 0-.84.41-.84 1.092v2.466H.212v-4.874h1.61v.74c.264-.574.626-.74 1.163-.74h1.39v4.874z" />
+        </svg>
+      </a>
+      <a href="#" class="social-link" aria-label="Upwork">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.545-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">About Me</span>
+        <h2 class="section-title">Crafting Digital Excellence</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-image">
+          <div class="about-image-wrapper">
+            <div class="about-image-placeholder"></div>
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="about-intro">
+            I'm a <span class="highlight">Full-Stack Developer</span> and <span class="highlight">AI Integration
+              Specialist</span>
+            with 3+ years of experience building modern, scalable, AI-powered web applications for international clients.
+          </p>
+          <p>
+            I handle the complete development lifecycle independently — planning, architecture, frontend, backend,
+            deployment, and maintenance. I work across React.js, Next.js, and TypeScript on the frontend, and
+            Node.js, Express.js, and Nest.js on the backend, powered by MongoDB, SQL, Firebase, and AWS. Alongside
+            engineering, I specialize in integrating AI meaningfully — chatbots, automation workflows, AI dashboards,
+            and custom AI agents that solve real business problems, not just add a feature for show.
+          </p>
+          <p>
+            What sets me apart is the ability to bridge technical execution and business growth. I've led end-to-end
+            client acquisition — from first outreach to signed proposal — and I know how to translate complex
+            technical solutions into decisions non-technical stakeholders can approve with confidence. Every product
+            I build is engineered to be production-ready, scalable, and built around measurable business impact.
+          </p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-number">150+</span>
+              <span class="stat-label">Projects Completed</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">100+</span>
+              <span class="stat-label">Happy Clients</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">3+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Career Section -->
+  <section class="section section-alt" id="career">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Career</span>
+        <h2 class="section-title">My Journey</h2>
+      </div>
+      <div class="career-grid">
+        <!-- Education -->
+        <div class="career-column">
+          <h3 class="career-heading">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+              <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
+            </svg>
+            Education
+          </h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-date">2023 — 2025</span>
+              <h4 class="timeline-title">ADP Computer Science</h4>
+              <p class="timeline-place">Riphah International University</p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-date">2021 — 2023</span>
+              <h4 class="timeline-title">FSc-Pre Engineering</h4>
+              <p class="timeline-place">Punjab Group of Colleges</p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-date">2012 — 2014</span>
+              <h4 class="timeline-title">Matriculation (Computer Science) </h4>
+              <p class="timeline-place">Allied School</p>
+            </div>
+          </div>
+        </div>
+        <!-- Certifications -->
+        <div class="career-column">
+          <h3 class="career-heading">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="6" />
+              <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+            </svg>
+            Certifications
+          </h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-date">2024</span>
+              <h4 class="timeline-title">Lead UI/UX & Immersive Strategist</h4>
+              <p class="timeline-place">WEB ALCHEMY EXCELLENCE</p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-date">2025</span>
+              <h4 class="timeline-title">Backend Logic Architect</h4>
+              <p class="timeline-place">JAVA NINJAS CHALLENGE</p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-date">2025</span>
+              <h4 class="timeline-title">Game Development</h4>
+              <p class="timeline-place">Game Fusion Architects</p>
+            </div>
+          </div>
+        </div>
+        <!-- Awards -->
+        <div class="career-column">
+          <h3 class="career-heading">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+              <path d="M4 22h16" />
+              <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+              <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+              <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+            </svg>
+            Awards
+          </h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-date">2024</span>
+              <h4 class="timeline-title">Awarded 1st Rank</h4>
+              <p class="timeline-place">WEB ALCHEMY EXCELLENCE</p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-date">2024</span>
+              <h4 class="timeline-title">Achieved 1st position</h4>
+              <p class="timeline-place">JAVA NINJAS CHALLENGE</p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-date">2025</span>
+              <h4 class="timeline-title">Secured First Position</h4>
+              <p class="timeline-place">Game Fusion Architects</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Digital Arsenal / Tooling Section -->
+  <section class="arsenal-section">
+    <div class="section-header">Ecosystem & Tooling</div>
+    <h2 class="section-title">Digital Arsenal</h2>
+
+    <!-- Row 1: Core Engineering -->
+    <div class="marquee-row row-1">
+      <div class="tool-card"><div class="icon"><i class="fas fa-database"></i></div><div class="name">MONGODB</div></div>
+      <div class="tool-card"><div class="icon"><i class="fas fa-server"></i></div><div class="name">EXPRESS.JS</div></div>
+      <div class="tool-card"><div class="icon"><i class="fab fa-react"></i></div><div class="name">REACT.JS</div></div>
+      <div class="tool-card"><div class="icon"><i class="fab fa-node-js"></i></div><div class="name">NODE.JS</div></div>
+      <div class="tool-card"><div class="icon"><i class="fab fa-js"></i></div><div class="name">JAVASCRIPT</div></div>
+      <div class="tool-card"><div class="icon"><i class="fas fa-java"></i></div><div class="name">JAVA</div></div>
+    </div>
+
+    <!-- Row 2: High-End Infrastructure -->
+    <div class="marquee-row row-2">
+      <div class="tool-card"><div class="icon"><i class="fas fa-wind"></i></div><div class="name">TAILWIND</div></div>
+      <div class="tool-card"><div class="icon"><i class="fas fa-bolt"></i></div><div class="name">SUPABASE</div></div>
+      <div class="tool-card"><div class="icon"><i class="fab fa-docker"></i></div><div class="name">DOCKER</div></div>
+      <div class="tool-card"><div class="icon"><i class="fas fa-network-wired"></i></div><div class="name">REST API</div></div>
+      <div class="tool-card"><div class="icon"><i class="fab fa-git-alt"></i></div><div class="name">GITHUB</div></div>
+      <div class="tool-card"><div class="icon"><i class="fas fa-cloud"></i></div><div class="name">AWS</div></div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Skills</span>
+        <h2 class="section-title">What I Bring to the Table</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">Full-Stack Development</span>
+            <span class="skill-percent">96%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 0%;" data-progress="96%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">React.js & Next.js</span>
+            <span class="skill-percent">95%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 0%;" data-progress="95%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">Node.js & Express.js</span>
+            <span class="skill-percent">94%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 0%;" data-progress="94%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">AI Integration & Automation</span>
+            <span class="skill-percent">95%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 0%;" data-progress="95%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">TypeScript & JavaScript (ES6+)</span>
+            <span class="skill-percent">93%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 0%;" data-progress="93%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">REST API Architecture</span>
+            <span class="skill-percent">93%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 93%;"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">Database Design (MongoDB & SQL)</span>
+            <span class="skill-percent">90%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 0%;" data-progress="90%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">Cloud Deployment (AWS & Firebase)</span>
+            <span class="skill-percent">89%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 0%;" data-progress="89%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">Client Acquisition & Business Development</span>
+            <span class="skill-percent">92%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 0%;" data-progress="92%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">Technical-to-Business Translation</span>
+            <span class="skill-percent">94%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 0%;" data-progress="94%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="exp-container">
+      <div class="exp-header">
+        <span class="exp-subtitle">My Credentials</span>
+        <h2 class="exp-title">Professional Journey</h2>
+      </div>
+
+      <h3 class="category-title">01. Internships</h3>
+      <div class="exp-grid">
+        <a href="your-cert-link-1.pdf" target="_blank" class="exp-link">
+          <div class="exp-card">
+            <img src="logo-decodelabs.png" alt="Logo" class="company-logo">
+            <span class="exp-date">MAY 2026 - PRESENT</span>
+            <h3 class="exp-role">UI/UX Design Intern</h3>
+            <p class="exp-org">DecodeLabs</p>
+            <p class="exp-desc">Crafting user-centric interfaces and immersive digital storytelling environments.</p>
+            <span class="cert-badge">View Certificate &rarr;</span>
+          </div>
+        </a>
+
+        <a href="your-cert-link-2.pdf" target="_blank" class="exp-link">
+          <div class="exp-card">
+            <img src="logo-codealpha.png" alt="Logo" class="company-logo">
+            <span class="exp-date">APR 2026 - MAY 2026</span>
+            <h3 class="exp-role">Web Engineering Intern</h3>
+            <p class="exp-org">CodeAlpha</p>
+            <p class="exp-desc">Implementing AI-augmented workflows and enterprise-grade web systems.</p>
+            <span class="cert-badge">View Certificate &rarr;</span>
+          </div>
+        </a>
+      </div>
+
+      <h3 class="category-title">02. Company Experience</h3>
+      <div class="exp-grid">
+        <a href="#" class="exp-link">
+          <div class="exp-card">
+            <img src="logo-ayesha-tech.png" alt="Logo" class="company-logo">
+            <span class="exp-date">APR 2026 - PRESENT</span>
+            <h3 class="exp-role">Founder & Digital Solutions Architect</h3>
+            <p class="exp-org">Ayesha Tech Services</p>
+            <p class="exp-desc">Leading full-stack development projects and high-impact design solutions for clients.</p>
+            <span class="cert-badge">View Profile &rarr;</span>
+          </div>
+        </a>
+      </div>
+
+      <h3 class="category-title">03. Software House</h3>
+      <div class="exp-grid">
+        <a href="your-software-house-cert.pdf" target="_blank" class="exp-link">
+          <div class="exp-card">
+            <img src="logo-software-house.png" alt="Logo" class="company-logo">
+            <span class="exp-date">PROJECT BASED</span>
+            <h3 class="exp-role">Creative Technologist</h3>
+            <p class="exp-org">Collaborative Projects</p>
+            <p class="exp-desc">Technical collaboration on complex algorithmic systems and Java-based online negotiation logic.</p>
+            <span class="cert-badge">View Reference &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const progressBars = document.querySelectorAll('.skill-progress');
+
+      const observerOptions = {
+        root: null,
+        threshold: 0.15
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const bar = entry.target;
+            const targetWidth = bar.getAttribute('data-progress');
+            if (targetWidth) {
+              bar.style.width = targetWidth;
+              observer.unobserve(bar);
+            }
+          }
+        });
+      }, observerOptions);
+
+      progressBars.forEach(bar => observer.observe(bar));
+    });
+  </script>
+
+  <!-- Services Section -->
+  <section class="section section-alt" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Services</span>
+        <h2 class="section-title">How I Can Help You</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z" />
+              <path d="M7 7h.01" />
+            </svg>
+          </div>
+          <h3 class="service-title">Full-Stack Web Development</h3>
+          <p class="service-description">
+            End-to-end product development — from architecture and database design to frontend delivery. I build custom, scalable, and secure web applications engineered for real production traffic, not just demo-scale usage.
+          </p>
+          <a href="#contact" class="service-link">Learn More →</a>
+        
+            <div class="service-tech">
+              <span class="service-tech-label">Technologies &amp; Skills Used</span>
+              <div class="service-tech-list">
+              <span class="tech-chip">React.js</span>
+              <span class="tech-chip">Next.js</span>
+              <span class="tech-chip">Node.js</span>
+              <span class="tech-chip">TypeScript</span>
+              <span class="tech-chip">MongoDB</span>
+              <span class="tech-chip">AWS</span>
+              </div>
+            </div>
+          </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 3v18h18" />
+              <path d="m19 9-5 5-4-4-3 3" />
+            </svg>
+          </div>
+          <h3 class="service-title">Modern Frontend Development</h3>
+          <p class="service-description">
+            Building fast, responsive interfaces with React.js and Next.js. I focus on clean, maintainable code and smooth interactions, ensuring your product feels premium and performs flawlessly across every device.
+          </p>
+          <a href="#contact" class="service-link">Learn More →</a>
+        
+            <div class="service-tech">
+              <span class="service-tech-label">Technologies &amp; Skills Used</span>
+              <div class="service-tech-list">
+              <span class="tech-chip">React</span>
+              <span class="tech-chip">Next.js</span>
+              <span class="tech-chip">TypeScript</span>
+              <span class="tech-chip">Tailwind CSS</span>
+              <span class="tech-chip">Framer Motion</span>
+              <span class="tech-chip">REST APIs</span>
+              </div>
+            </div>
+          </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+              <path d="m9 12 2 2 4-4" />
+            </svg>
+          </div>
+          <h3 class="service-title">Backend & API Architecture</h3>
+          <p class="service-description">
+            Designing secure, scalable server-side systems. I build RESTful APIs, authentication & authorization flows, and database-driven architecture engineered to handle real production load, not just demo-scale usage.
+          </p>
+          <a href="#contact" class="service-link">Learn More →</a>
+        
+            <div class="service-tech">
+              <span class="service-tech-label">Technologies &amp; Skills Used</span>
+              <div class="service-tech-list">
+              <span class="tech-chip">Node.js</span>
+              <span class="tech-chip">Express.js</span>
+              <span class="tech-chip">Nest.js</span>
+              <span class="tech-chip">MongoDB</span>
+              <span class="tech-chip">SQL</span>
+              <span class="tech-chip">Authentication & Authorization</span>
+              </div>
+            </div>
+          </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="3" rx="2" />
+              <path d="M7 7h10" />
+              <path d="M7 12h10" />
+              <path d="M7 17h10" />
+            </svg>
+          </div>
+          <h3 class="service-title">AI Integration & Automation</h3>
+          <p class="service-description">
+            Embedding AI where it actually moves a metric — chatbots, intelligent dashboards, automation workflows, and custom AI agents. I help businesses use AI to boost productivity, cut costs, and improve customer experience.
+          </p>
+          <a href="#contact" class="service-link">Learn More →</a>
+        
+            <div class="service-tech">
+              <span class="service-tech-label">Technologies &amp; Skills Used</span>
+              <div class="service-tech-list">
+              <span class="tech-chip">AI Chatbots</span>
+              <span class="tech-chip">LLM Integration</span>
+              <span class="tech-chip">Prompt Engineering</span>
+              <span class="tech-chip">Custom AI Agents</span>
+              <span class="tech-chip">Third-Party AI APIs</span>
+              <span class="tech-chip">Workflow Automation</span>
+              </div>
+            </div>
+          </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 3v18h18" />
+              <path d="m19 9-5 5-4-4-3 3" />
+            </svg>
+          </div>
+          <h3 class="service-title">User Interface & Experience (UI/UX)</h3>
+          <p class="service-description">
+           Designing intuitive, conversion-focused interfaces. I bridge the gap between aesthetics and functionality, ensuring every interaction is purposeful and every product feels effortless to use.
+          </p>
+          <a href="#contact" class="service-link">Learn More →</a>
+        
+            <div class="service-tech">
+              <span class="service-tech-label">Technologies &amp; Skills Used</span>
+              <div class="service-tech-list">
+              <span class="tech-chip">Figma</span>
+              <span class="tech-chip">Framer Motion</span>
+              <span class="tech-chip">Design Systems</span>
+              <span class="tech-chip">Prototyping</span>
+              <span class="tech-chip">User Research</span>
+              <span class="tech-chip">Accessibility</span>
+              </div>
+            </div>
+          </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+              <path d="m9 12 2 2 4-4" />
+            </svg>
+          </div>
+          <h3 class="service-title">Responsive & Adaptive Design</h3>
+          <p class="service-description">
+Ensuring your website looks flawless on every screen. I use fluid grids and flexible layouts to provide a consistent experience from 4K monitors down to the latest smartphones.          </p>
+          <a href="#contact" class="service-link">Learn More →</a>
+        
+            <div class="service-tech">
+              <span class="service-tech-label">Technologies &amp; Skills Used</span>
+              <div class="service-tech-list">
+              <span class="tech-chip">CSS Grid & Flexbox</span>
+              <span class="tech-chip">Tailwind CSS</span>
+              <span class="tech-chip">Media Queries</span>
+              <span class="tech-chip">Cross-Browser Testing</span>
+              <span class="tech-chip">Mobile-First Design</span>
+              </div>
+            </div>
+          </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="3" rx="2" />
+              <path d="M7 7h10" />
+              <path d="M7 12h10" />
+              <path d="M7 17h10" />
+            </svg>
+          </div>
+          <h3 class="service-title">Cloud Deployment & DevOps</h3>
+          <p class="service-description">
+Deploying and managing applications on reliable, scalable cloud infrastructure. From CI/CD basics to performance monitoring, I ensure your product stays production-ready as it grows.          </p>
+          <a href="#contact" class="service-link">Learn More →</a>
+        
+            <div class="service-tech">
+              <span class="service-tech-label">Technologies &amp; Skills Used</span>
+              <div class="service-tech-list">
+              <span class="tech-chip">AWS</span>
+              <span class="tech-chip">Firebase</span>
+              <span class="tech-chip">Docker</span>
+              <span class="tech-chip">CI/CD Fundamentals</span>
+              <span class="tech-chip">Performance Monitoring</span>
+              </div>
+            </div>
+          </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <h3 class="service-title">Performance & Speed Optimization</h3>
+          <p class="service-description">
+Eliminating lag to keep bounce rates low. I optimize images, minify code, and leverage caching to ensure your website loads instantly, significantly improving both SEO and user satisfaction.          </p>
+          <a href="#contact" class="service-link">Learn More →</a>
+        
+            <div class="service-tech">
+              <span class="service-tech-label">Technologies &amp; Skills Used</span>
+              <div class="service-tech-list">
+              <span class="tech-chip">Lighthouse</span>
+              <span class="tech-chip">Image Optimization</span>
+              <span class="tech-chip">Code Splitting</span>
+              <span class="tech-chip">Caching</span>
+              <span class="tech-chip">CDN</span>
+              </div>
+            </div>
+          </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+              <path d="m7.5 4.21 4.5 2.6 4.5-2.6" />
+              <path d="M7.5 19.79V14.6L3 12" />
+              <path d="M21 12l-4.5 2.6v5.19" />
+              <path d="M3.27 6.96 12 12.01l8.73-5.05" />
+              <path d="M12 22.08V12" />
+            </svg>
+          </div>
+          <h3 class="service-title">Business Development & Technical Consulting</h3>
+          <p class="service-description">
+Bridging the gap between engineering and growth. I translate complex technical solutions into proposals non-technical stakeholders can approve with confidence, and help scope projects that are realistic and built to scale.          </p>
+          <a href="#contact" class="service-link">Learn More →</a>
+        
+            <div class="service-tech">
+              <span class="service-tech-label">Technologies &amp; Skills Used</span>
+              <div class="service-tech-list">
+              <span class="tech-chip">Client Acquisition</span>
+              <span class="tech-chip">Technical Proposals</span>
+              <span class="tech-chip">Stakeholder Alignment</span>
+              <span class="tech-chip">Project Scoping</span>
+              <span class="tech-chip">Business Strategy</span>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise Section -->
+  <section class="section" id="expertise">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Expertise</span>
+        <h2 class="section-title">Areas of Specialization</h2>
+      </div>
+      <div class="expertise-grid">
+        <div class="expertise-card">
+          <span class="expertise-number">01</span>
+          <h3 class="expertise-title">Full-Stack Product Engineering</h3>
+          <p class="expertise-description">
+Architecting complete web applications from the ground up. I blend clean frontend engineering with robust backend systems to build products that are fast, scalable, and production-ready from day one.          </p>
+        </div>
+        <div class="expertise-card">
+          <span class="expertise-number">02</span>
+          <h3 class="expertise-title">AI-Powered Systems & Automation</h3>
+          <p class="expertise-description">
+            Engineering intelligent systems using LLM integration and custom AI workflows. Specialized in AI chatbots, automation, and agents that reduce manual effort and drive measurable business impact.
+          </p>
+        </div>
+        <div class="expertise-card">
+          <span class="expertise-number">03</span>
+          <h3 class="expertise-title">Modern Web & Cloud Architecture</h3>
+          <p class="expertise-description">
+Building scalable systems on modern cloud infrastructure. Focused on performance, security, and reliability so applications hold up under real production traffic, not just demo-scale usage.          </p>
+        </div>
+        <div class="expertise-card">
+          <span class="expertise-number">04</span>
+          <h3 class="expertise-title">Full-Cycle Solution Architecture</h3>
+          <p class="expertise-description">
+Delivering end-to-end technical strategy — from system design to agile deployment — while translating technical decisions into business outcomes clients can act on with confidence.          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Process Section -->
+  <section class="process-section">
+    <h2 class="process-title">Our Process</h2>
+
+    <div class="process-container">
+      <!-- Item 1 -->
+      <div class="process-item">
+        <div class="icon-box"><i class="fas fa-search"></i></div>
+        <div class="process-text-content">
+          <div class="step-num">1</div>
+          <div class="step-name">Discovery</div>
+          <div class="step-desc">Research & requirements</div>
+        </div>
+      </div>
+      <!-- Item 2 -->
+      <div class="process-item">
+        <div class="icon-box"><i class="fas fa-layer-group"></i></div>
+        <div class="process-text-content">
+          <div class="step-num">2</div>
+          <div class="step-name">Design</div>
+          <div class="step-desc">UX & visual design</div>
+        </div>
+      </div>
+      <!-- Item 3 -->
+      <div class="process-item">
+        <div class="icon-box"><i class="fas fa-code"></i></div>
+        <div class="process-text-content">
+          <div class="step-num">3</div>
+          <div class="step-name">Development</div>
+          <div class="step-desc">Build & iterate</div>
+        </div>
+      </div>
+      <!-- Item 4 -->
+      <div class="process-item">
+        <div class="icon-box"><i class="fas fa-rocket"></i></div>
+        <div class="process-text-content">
+          <div class="step-num">4</div>
+          <div class="step-name">Deployment</div>
+          <div class="step-desc">Launch & scale</div>
+        </div>
+      </div>
+      <!-- Item 5 -->
+      <div class="process-item">
+        <div class="icon-box"><i class="fas fa-tools"></i></div>
+        <div class="process-text-content">
+          <div class="step-num">5</div>
+          <div class="step-name">Support & Maintenance</div>
+          <div class="step-desc">Ongoing optimization</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section section-alt" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Portfolio</span>
+        <h2 class="section-title">Featured Projects</h2>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-image-placeholder"></div>
+            <div class="project-overlay">
+              <a href="#" class="project-link">View Project →</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category">AI Implementation</span>
+            <h3 class="project-title">E-commerce AI Recommendation Engine</h3>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-image-placeholder"></div>
+            <div class="project-overlay">
+              <a href="#" class="project-link">View Project →</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category">Business Strategy</span>
+            <h3 class="project-title">Supply Chain Optimization Platform</h3>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-image-placeholder"></div>
+            <div class="project-overlay">
+              <a href="#" class="project-link">View Project →</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category">Data Analytics</span>
+            <h3 class="project-title">Financial Forecasting Dashboard</h3>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-image-placeholder"></div>
+            <div class="project-overlay">
+              <a href="#" class="project-link">View Project →</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category">Automation</span>
+            <h3 class="project-title">Healthcare Process Automation</h3>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-image-placeholder"></div>
+            <div class="project-overlay">
+              <a href="#" class="project-link">View Project →</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category">Machine Learning</span>
+            <h3 class="project-title">Customer Churn Prediction Model</h3>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-image-placeholder"></div>
+            <div class="project-overlay">
+              <a href="#" class="project-link">View Project →</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category">NLP</span>
+            <h3 class="project-title">Intelligent Document Processing</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section class="section" id="blog">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Insights</span>
+        <h2 class="section-title">Latest Articles</h2>
+      </div>
+      <div class="blog-grid">
+        <article class="blog-card">
+          <div class="blog-image">
+            <div class="blog-image-placeholder"></div>
+          </div>
+          <div class="blog-content">
+            <span class="blog-date">January 15, 2024</span>
+            <h3 class="blog-title">The Future of AI in Business: Trends to Watch in 2024</h3>
+            <p class="blog-excerpt">
+              Exploring the emerging AI trends that will shape business strategy and operations in the coming year.
+            </p>
+            <a href="#" class="blog-link">Read More →</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <div class="blog-image">
+            <div class="blog-image-placeholder"></div>
+          </div>
+          <div class="blog-content">
+            <span class="blog-date">December 28, 2023</span>
+            <h3 class="blog-title">How to Build an AI-First Company Culture</h3>
+            <p class="blog-excerpt">
+              A comprehensive guide to fostering innovation and AI adoption across your organization.
+            </p>
+            <a href="#" class="blog-link">Read More →</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <div class="blog-image">
+            <div class="blog-image-placeholder"></div>
+          </div>
+          <div class="blog-content">
+            <span class="blog-date">November 12, 2023</span>
+            <h3 class="blog-title">ROI of AI: Measuring Success in Digital Transformation</h3>
+            <p class="blog-excerpt">
+              Key metrics and frameworks for evaluating the return on investment of AI initiatives.
+            </p>
+            <a href="#" class="blog-link">Read More →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Marquee Section -->
+  <div class="client-marquee-wrapper">
+    <div class="client-header">
+      <p>Partnerships</p>
+      <h2>Happy Clients</h2>
+    </div>
+
+    <div class="marquee-track">
+      <div class="logo-item">  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/1280px-LinkedIn_Logo.svg.png" alt="LinkedIn"></div>
+      <div class="logo-item"><img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google"></div>
+      <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Fiverr_Logo_09.2020.svg" alt="Fiverr"></div>
+      <div class="logo-item"><img src="https://www.vectorlogo.zone/logos/upwork/upwork-ar21.svg" alt="Upwork"></div>
+      <div class="logo-item">  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/1280px-LinkedIn_Logo.svg.png" alt="LinkedIn"></div>
+      <div class="logo-item"><img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google"></div>
+      <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Fiverr_Logo_09.2020.svg" alt="Fiverr"></div>
+      <div class="logo-item"><img src="https://www.vectorlogo.zone/logos/upwork/upwork-ar21.svg" alt="Upwork"></div>
+      <div class="logo-item"><img src="https://cdn.worldvectorlogo.com/logos/shopify.svg" alt="Shopify"></div>
+      <div class="logo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials Section -->
+  <section class="section section-alt" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Testimonials</span>
+        <h2 class="section-title">What Clients Say</h2>
+      </div>
+      <div class="testimonials-slider">
+        <div class="testimonials-track" id="testimonialsTrack">
+          <div class="testimonial-card active">
+            <div class="testimonial-content">
+              <svg class="quote-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                fill="currentColor">
+                <path
+                  d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094-.55.79-.977 1.65-1.26 2.587-.29.936-.436 1.91-.436 2.92 0 1.092.168 2.048.502 2.866.334.82.802 1.5 1.406 2.044.603.545 1.308.948 2.114 1.21.806.26 1.67.392 2.595.392l.413-4.853zM22.4 15.757c0-.88-.23-1.618-.69-2.217-.326-.42-.77-.692-1.327-.817-.56-.124-1.074-.13-1.54-.022-.16-.94.09-1.95.75-3.02.66-1.06 1.514-1.86 2.557-2.4L20.57 5c-.8.396-1.555.898-2.26 1.505-.708.607-1.34 1.305-1.894 2.094-.556.79-.976 1.65-1.26 2.587-.285.936-.428 1.91-.428 2.92 0 1.092.166 2.048.5 2.866.336.82.803 1.5 1.407 2.044.604.545 1.31.948 2.115 1.21.806.26 1.67.392 2.594.392l.055-4.86z" />
+              </svg>
+              <p class="testimonial-text">
+                "Ayesha transformed our entire approach to data. Her AI strategy helped us reduce operational costs by
+                40% while improving customer satisfaction scores significantly."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar"></div>
+              <div class="author-info">
+                <h4 class="author-name">Sarah Chen</h4>
+                <p class="author-role">CEO, TechFlow Inc.</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <svg class="quote-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                fill="currentColor">
+                <path
+                  d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094-.55.79-.977 1.65-1.26 2.587-.29.936-.436 1.91-.436 2.92 0 1.092.168 2.048.502 2.866.334.82.802 1.5 1.406 2.044.603.545 1.308.948 2.114 1.21.806.26 1.67.392 2.595.392l.413-4.853zM22.4 15.757c0-.88-.23-1.618-.69-2.217-.326-.42-.77-.692-1.327-.817-.56-.124-1.074-.13-1.54-.022-.16-.94.09-1.95.75-3.02.66-1.06 1.514-1.86 2.557-2.4L20.57 5c-.8.396-1.555.898-2.26 1.505-.708.607-1.34 1.305-1.894 2.094-.556.79-.976 1.65-1.26 2.587-.285.936-.428 1.91-.428 2.92 0 1.092.166 2.048.5 2.866.336.82.803 1.5 1.407 2.044.604.545 1.31.948 2.115 1.21.806.26 1.67.392 2.594.392l.055-4.86z" />
+              </svg>
+              <p class="testimonial-text">
+                "Working with Ayesha was a game-changer. Her expertise in machine learning helped us build a predictive
+                model that increased our revenue forecasting accuracy by 85%."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar"></div>
+              <div class="author-info">
+                <h4 class="author-name">Michael Roberts</h4>
+                <p class="author-role">CFO, Global Dynamics</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <svg class="quote-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                fill="currentColor">
+                <path
+                  d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094-.55.79-.977 1.65-1.26 2.587-.29.936-.436 1.91-.436 2.92 0 1.092.168 2.048.502 2.866.334.82.802 1.5 1.406 2.044.603.545 1.308.948 2.114 1.21.806.26 1.67.392 2.595.392l.413-4.853zM22.4 15.757c0-.88-.23-1.618-.69-2.217-.326-.42-.77-.692-1.327-.817-.56-.124-1.074-.13-1.54-.022-.16-.94.09-1.95.75-3.02.66-1.06 1.514-1.86 2.557-2.4L20.57 5c-.8.396-1.555.898-2.26 1.505-.708.607-1.34 1.305-1.894 2.094-.556.79-.976 1.65-1.26 2.587-.285.936-.428 1.91-.428 2.92 0 1.092.166 2.048.5 2.866.336.82.803 1.5 1.407 2.044.604.545 1.31.948 2.115 1.21.806.26 1.67.392 2.594.392l.055-4.86z" />
+              </svg>
+              <p class="testimonial-text">
+                "Ayesha's strategic guidance helped us navigate our digital transformation journey. Her blend of
+                technical expertise and business acumen is truly rare and valuable."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar"></div>
+              <div class="author-info">
+                <h4 class="author-name">Jennifer Walsh</h4>
+                <p class="author-role">VP of Operations, Nexus Corp</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonials-nav">
+          <button class="testimonial-btn prev" id="prevBtn" aria-label="Previous testimonial">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+          </button>
+          <div class="testimonial-dots" id="testimonialDots">
+            <button class="dot active" data-index="0" aria-label="Go to testimonial 1"></button>
+            <button class="dot" data-index="1" aria-label="Go to testimonial 2"></button>
+            <button class="dot" data-index="2" aria-label="Go to testimonial 3"></button>
+          </div>
+          <button class="testimonial-btn next" id="nextBtn" aria-label="Next testimonial">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Get in Touch</span>
+        <h2 class="section-title">Let's Work Together</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p class="contact-intro">
+            Ready to transform your business with AI? I'd love to hear about your project and explore how we can work
+            together.
+          </p>
+          <div class="contact-details">
+  <div class="contact-item">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="20" height="16" x="2" y="4" rx="2" />
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </svg>
+    <!-- Span ko link me badal diya taake direct click ho sake -->
+    <a href="mailto:ashiii.3303@gmail.com" class="email-link">ashiii.3303@gmail.com</a>
+  </div>
+            <div class="contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <span>Pakistan, Punjab, Lahore</span>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="https://www.linkedin.com/in/ayesha-abid33/" class="contact-social" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect width="4" height="12" x="2" y="9"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="#" class="contact-social" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61589688999279&sk=directory_contact_info&fb_profile_edit_entry_point=%7B%22feature%22%3A%22profile_directory%22%2C%22click_point%22%3A%22pencil_edit_directory_section%22%2C%22additional_metadata%22%3A%7B%22section_type%22%3A%22contact_info%22%7D%7D" class="contact-social" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" id="name" name="name" class="form-input" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Your Email</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="yourname@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" id="subject" name="subject" class="form-input" placeholder="Project Inquiry" required>
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" name="message" class="form-textarea" placeholder="Tell me about your project..."
+              rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+          <div class="form-success" id="formSuccess">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            <span>Thank you! Your message has been sent successfully.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="footer-logo">AYESHA</a>
+          <p class="footer-tagline">Full-Stack Developer & AI Integration Specialist</p>
+          <p class="footer-description">
+            Building scalable, AI-powered web applications — from architecture to deployment — for global clients.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-services">
+          <h4 class="footer-heading">Services</h4>
+          <ul>
+            <li><a href="#services">Full-Stack Web Development</a></li>
+            <li><a href="#services">Modern Frontend Development</a></li>
+            <li><a href="#services">Backend & API Architecture</a></li>
+            <li><a href="#services">AI Integration & Automation</a></li>
+          </ul>
+        </div>
+        <div class="footer-connect">
+          <h4 class="footer-heading">Connect</h4>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/ayesha-abid33/" class="footer-social" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect width="4" height="12" x="2" y="9"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61589688999279&sk=directory_contact_info&fb_profile_edit_entry_point=%7B%22feature%22%3A%22profile_directory%22%2C%22click_point%22%3A%22pencil_edit_directory_section%22%2C%22additional_metadata%22%3A%7B%22section_type%22%3A%22contact_info%22%7D%7D" class="footer-social" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+          </div>
+          <div class="footer-platforms">
+            <a href="#" class="platform-btn fiverr">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-.85c-.546 0-.84.41-.84 1.092v2.466h-1.61v-3.558h-.684c-.547 0-.84.41-.84 1.092v2.466h-1.61v-4.874h1.61v.74c.264-.574.626-.74 1.163-.74h1.972v.74c.264-.574.625-.74 1.162-.74h1.527v1.316zm-6.786 1.501h-3.359c.088.546.43.858 1.006.858.43 0 .732-.175.966-.546l1.324.654c-.478.806-1.324 1.25-2.376 1.25-1.61 0-2.674-1.106-2.674-2.554 0-1.434 1.078-2.553 2.586-2.553 1.478 0 2.527 1.163 2.527 2.612v.279zm-2.529-1.705c-.473 0-.808.307-.896.75h1.795c-.089-.443-.428-.75-.9-.75zm-3.983 3.183h-1.61V9.093h1.61v6.17zm-2.674-5.07a.928.928 0 0 0-.928-.927.928.928 0 1 0 0 1.855.928.928 0 0 0 .928-.928zm-4.08 5.07h-1.61v-3.558h-.684c-.547 0-.84.41-.84 1.092v2.466H.212v-4.874h1.61v.74c.264-.574.626-.74 1.163-.74h1.39v4.874z" />
+              </svg>
+              Fiverr
+            </a>
+            <a href="#" class="platform-btn upwork">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.545-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z" />
+              </svg>
+              Upwork
+            </a>
+          </div>
+         <!-- Puraane <p> tag ko is updated code se replace karein -->
+<p class="footer-email">
+  <a href="mailto:ashiii.3303@gmail.com" class="footer-email-link">ashiii.3303@gmail.com</a>
+</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Ayesha. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+ <script src="./script.js"></script>
+ <script src="./enhance.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+ <script src="./hero3d.js"></script>
+ <script src="./motion3d.js"></script>
+ 
+ <!-- Testimonials 4-Second Auto-Play Engine -->
+<!-- Testimonials Smooth 3-Second Slider Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const track = document.getElementById('testimonialsTrack');
+    const slides = document.querySelectorAll('.testimonial-card');
+    const dots = document.querySelectorAll('.testimonial-dots .dot');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    let currentSlide = 0;
+    let slideInterval;
+
+    if (!track || slides.length === 0) return;
+
+    function updateSliderPosition() {
+      // Loop safety checks
+      if (currentSlide >= slides.length) currentSlide = 0;
+      if (currentSlide < 0) currentSlide = slides.length - 1;
+
+      // Track ko move karwana base on percentage width
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      // Active state manage dots k liye
+      if (dots.length > 0) {
+        dots.forEach(dot => dot.classList.remove('active'));
+        if (dots[currentSlide]) {
+          dots[currentSlide].classList.add('active');
+        }
+      }
+    }
+
+    function nextSlide() {
+      currentSlide++;
+      updateSliderPosition();
+    }
+
+    function prevSlide() {
+      currentSlide--;
+      updateSliderPosition();
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      slideInterval = setInterval(nextSlide, 3000); // Exact 3 Seconds Rule
+    }
+
+    function stopAutoPlay() {
+      if (slideInterval) clearInterval(slideInterval);
+    }
+
+    // Manual Nav Controls
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => { nextSlide(); startAutoPlay(); });
+    }
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => { prevSlide(); startAutoPlay(); });
+    }
+
+    // Dots Indicators
+    if (dots.length > 0) {
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          currentSlide = index;
+          updateSliderPosition();
+          startAutoPlay();
+        });
+      });
+    }
+
+    // Initialize layout position on load
+    updateSliderPosition();
+    startAutoPlay();
+  });
+</script>
+
+</body>
+
+</html>

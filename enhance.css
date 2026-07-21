@@ -1,0 +1,422 @@
+/* ========================================================
+   PREMIUM ENHANCEMENT LAYER
+   Adds depth, motion and glass detailing on top of the
+   existing luxury dark/gold system. Nothing here overrides
+   layout, color tokens, or content — only presentation.
+   ======================================================== */
+
+:root {
+  --glow-accent: rgba(201, 169, 98, 0.35);
+  --glow-accent-soft: rgba(201, 169, 98, 0.14);
+  --glass-bg: rgba(26, 26, 26, 0.55);
+  --glass-border: rgba(245, 245, 245, 0.08);
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------- Global feel ---------- */
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+html {
+  scrollbar-color: var(--color-accent-dark) var(--color-bg);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--color-accent-dark), var(--color-accent));
+  border-radius: 10px;
+  border: 2px solid var(--color-bg);
+}
+
+body {
+  position: relative;
+}
+
+/* Cursor glow — desktop, fine pointers only */
+#cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 420px;
+  height: 420px;
+  pointer-events: none;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, var(--glow-accent-soft) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-premium);
+  will-change: transform;
+}
+#cursor-glow.active { opacity: 1; }
+
+/* ---------- Ambient floating background ---------- */
+
+.ambient-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  background: radial-gradient(circle at 30% 30%, var(--color-accent) 0%, transparent 70%);
+  animation: driftOrb 22s ease-in-out infinite;
+  will-change: transform;
+}
+
+.ambient-orb.o1 { width: 380px; height: 380px; top: -80px; left: -60px; animation-duration: 26s; }
+.ambient-orb.o2 { width: 260px; height: 260px; bottom: 0; left: 20%; animation-duration: 19s; animation-delay: -4s; opacity: 0.22; }
+.ambient-orb.o3 { width: 320px; height: 320px; top: 20%; right: -100px; animation-duration: 24s; animation-delay: -9s; opacity: 0.28; }
+
+@keyframes driftOrb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.08); }
+  66% { transform: translate(-24px, 26px) scale(0.95); }
+}
+
+/* Fine grain noise for premium texture on hero */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: radial-gradient(rgba(245,245,245,0.035) 1px, transparent 1px);
+  background-size: 3px 3px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* ---------- Section reveal, upgraded ---------- */
+
+.reveal {
+  transition: opacity 0.9s var(--ease-premium), transform 0.9s var(--ease-premium), filter 0.9s var(--ease-premium);
+  filter: blur(6px);
+}
+
+.reveal.revealed {
+  filter: blur(0);
+}
+
+/* stagger via inline custom property set by JS (--stagger index) */
+.reveal {
+  transition-delay: calc(var(--stagger, 0) * 70ms);
+}
+
+/* ---------- 3D tilt-ready cards ---------- */
+
+.tilt-scope {
+  perspective: 1200px;
+}
+
+.service-card,
+.tool-card,
+.expertise-card,
+.skill-card,
+.project-card,
+.exp-card,
+.blog-card,
+.about-image-wrapper,
+.testimonial-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.35s var(--ease-premium), box-shadow 0.35s var(--ease-premium), border-color 0.35s var(--ease-premium);
+}
+
+/* Glass + glow refinement on core surfaces */
+.service-card,
+.expertise-card,
+.exp-card,
+.skill-card {
+  background: linear-gradient(160deg, rgba(26,26,26,0.9), rgba(17,17,17,0.9));
+  backdrop-filter: blur(6px);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before,
+.expertise-card::before,
+.exp-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 0%), var(--glow-accent-soft), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-premium);
+  pointer-events: none;
+}
+
+.service-card:hover::before,
+.expertise-card:hover::before,
+.exp-card:hover::before {
+  opacity: 1;
+}
+
+.service-card:hover,
+.expertise-card:hover,
+.exp-card:hover {
+  box-shadow: 0 20px 60px -20px rgba(201, 169, 98, 0.25), var(--shadow-lg);
+}
+
+.service-icon,
+.expertise-number {
+  transition: transform 0.4s var(--ease-premium);
+}
+
+.service-card:hover .service-icon {
+  transform: translateZ(30px) scale(1.06);
+}
+
+/* ---------- Tool / arsenal cards ---------- */
+
+.tool-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px transparent;
+  transition: box-shadow 0.3s var(--ease-premium);
+}
+
+.tool-card:hover {
+  box-shadow: 0 12px 30px -12px var(--glow-accent);
+}
+
+.tool-card:hover::after {
+  box-shadow: inset 0 0 0 1px var(--color-accent);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.7s var(--ease-premium);
+  z-index: -1;
+}
+
+.btn:hover::before {
+  left: 130%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 30px -6px var(--glow-accent);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-3px);
+}
+
+.social-link,
+.footer-social,
+.platform-btn {
+  transition: transform 0.3s var(--ease-premium), color 0.3s var(--ease-premium), border-color 0.3s var(--ease-premium), box-shadow 0.3s var(--ease-premium);
+}
+
+.social-link:hover,
+.footer-social:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px -8px var(--glow-accent);
+}
+
+/* ---------- Hero polish ---------- */
+
+.hero-name {
+  background: linear-gradient(100deg, var(--color-text) 30%, var(--color-accent) 55%, var(--color-text) 80%);
+  background-size: 240% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: heroSheen 7s ease-in-out infinite;
+}
+
+@keyframes heroSheen {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero::after {
+  transform: translate(var(--tx, 0px), var(--ty, 0px));
+  transition: transform 0.6s var(--ease-premium);
+  will-change: transform;
+}
+
+/* ---------- Stat counters ---------- */
+
+.stat-number {
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 24px var(--glow-accent-soft);
+}
+
+/* ---------- Skills — premium bars ---------- */
+
+.skill-bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-progress {
+  position: relative;
+  background: linear-gradient(90deg, var(--color-accent-dark), var(--color-accent));
+  box-shadow: 0 0 16px var(--glow-accent);
+  overflow: hidden;
+}
+
+.skill-progress::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,0.45) 50%, transparent 80%);
+  background-size: 200% 100%;
+  animation: shimmerBar 2.6s linear infinite;
+}
+
+@keyframes shimmerBar {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skill-card:hover {
+  transform: translateY(-3px);
+}
+
+/* ---------- Technologies & Skills chips ---------- */
+
+.service-tech {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.service-tech-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.service-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tech-chip {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  background: rgba(201, 169, 98, 0.08);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  transition: border-color 0.25s var(--ease-premium), transform 0.25s var(--ease-premium), background 0.25s var(--ease-premium);
+}
+
+.tech-chip:hover {
+  border-color: var(--color-accent);
+  background: rgba(201, 169, 98, 0.16);
+  transform: translateY(-2px);
+  color: var(--color-accent);
+}
+
+/* ---------- Projects ---------- */
+
+.project-card:hover {
+  box-shadow: 0 24px 60px -20px rgba(201, 169, 98, 0.3);
+}
+
+.project-image img,
+.project-image-placeholder {
+  transition: transform 0.6s var(--ease-premium);
+}
+
+.project-card:hover .project-image img,
+.project-card:hover .project-image-placeholder {
+  transform: scale(1.06);
+}
+
+.project-overlay {
+  transition: opacity 0.4s var(--ease-premium);
+}
+
+/* ---------- Timeline ---------- */
+
+.timeline-item {
+  transition: transform 0.3s var(--ease-premium);
+}
+
+.timeline-item:hover {
+  transform: translateX(4px);
+}
+
+/* ---------- Focus states (accessibility floor) ---------- */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .ambient-orb { display: none; }
+  #cursor-glow { display: none; }
+}
+
+/* Disable heavy hover/tilt affordances on touch devices */
+@media (hover: none) {
+  #cursor-glow { display: none; }
+  .service-card:hover,
+  .tool-card:hover,
+  .expertise-card:hover,
+  .exp-card:hover {
+    transform: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .ambient-orb { opacity: 0.18; }
+}

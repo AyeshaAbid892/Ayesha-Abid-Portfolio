@@ -1,0 +1,603 @@
+/* ==========================================================================
+   MODERN 3D LAYER — Ayesha Abid Portfolio
+   Same original theme (black + gold). Gradients are built only from the
+   theme's own color variables — no new hues introduced.
+   Loaded AFTER style.css + enhance.css.
+   Perf-conscious: no mass backdrop-filter blur, few continuous animations.
+   ========================================================================== */
+
+:root {
+  /* Theme-only gradient, built purely from existing --color-accent-* tones */
+  --gradient-brand: linear-gradient(120deg, var(--color-accent-dark), var(--color-accent) 55%, var(--color-accent-hover));
+  --gradient-brand-soft: linear-gradient(135deg, rgba(201, 169, 98, 0.14), rgba(201, 169, 98, 0.04));
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(201, 169, 98, 0.18);
+  --shadow-glow-gold: 0 0 0 1px rgba(201, 169, 98, 0.16), 0 16px 40px -18px rgba(201, 169, 98, 0.35);
+  --persp: 1400px;
+}
+
+/* ---- Subtle static ambient backdrop (no per-frame animation cost) ---- */
+body {
+  position: relative;
+  isolation: isolate;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(32% 26% at 14% 10%, rgba(201, 169, 98, 0.09), transparent 60%),
+    radial-gradient(30% 24% at 88% 85%, rgba(201, 169, 98, 0.07), transparent 60%);
+}
+
+/* ==========================================================================
+   Typography — headings stay on the original Playfair Display + gold accent.
+   Only the hero name and nav logo get the animated gradient (signature
+   moments), everything else uses a static theme gradient (cheap, no repaint).
+   ========================================================================== */
+
+.section-title,
+.exp-title,
+.process-title,
+.modal-title {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-tag,
+.exp-subtitle {
+  letter-spacing: 0.16em;
+  color: var(--color-accent);
+}
+
+/* ==========================================================================
+   Navbar — light glass, kept minimal (single blurred surface, cheap)
+   ========================================================================== */
+
+.navbar {
+  background: rgba(10, 10, 10, 0.72) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.nav-logo {
+  background: var(--gradient-brand);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 9s ease-in-out infinite alternate;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.nav-link { position: relative; }
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-brand);
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 2px;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after { width: 100%; }
+
+/* ==========================================================================
+   Hero — 3D canvas backdrop
+   ========================================================================== */
+
+#hero-3d-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero::after { z-index: 1; }
+/* NOTE: no `perspective` on .hero and no `preserve-3d` on .hero-content —
+   gradient-clipped text (background-clip:text + transparent fill) silently
+   disappears in Chromium when placed inside a 3D-transformed/perspective
+   ancestor. That was exactly why "Ayesha Abid" was invisible before. */
+
+.hero-name {
+  /* Plain elegant serif name — matches the inspo reference. Forced with
+     !important because enhance.css (the original template) ALSO has its
+     own competing `.hero-name` rule (a gold gradient-clip-text "sheen"
+     animation) at the same CSS specificity — without !important here,
+     which one wins can depend on load order/caching, which is exactly
+     why this kept silently reverting. */
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  color: #f5f0e6 !important;
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.8);
+}
+
+.hero-title {
+  font-family: var(--font-display) !important;
+  color: #ffffff !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+}
+
+.hero-description {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: #e4e0d6 !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85), 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.btn {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.social-link,
+.contact-social,
+.footer-social {
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.social-link:hover,
+.contact-social:hover,
+.footer-social:hover {
+  transform: translateY(-3px) scale(1.08);
+  color: var(--color-accent-hover);
+}
+
+/* ==========================================================================
+   Cards — light glass surface, tilt + spotlight glow ONLY on hover.
+   No backdrop-filter here (was the main cost) — a plain tinted surface
+   keeps the depth look without the GPU expense.
+   ========================================================================== */
+
+.skill-card,
+.service-card,
+.project-card,
+.exp-card,
+.expertise-card,
+.blog-card,
+.testimonial-card,
+.tool-card,
+.career-column {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+}
+
+.skill-card::before,
+.service-card::before,
+.project-card::before,
+.exp-card::before,
+.expertise-card::before,
+.blog-card::before,
+.testimonial-card::before,
+.tool-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(201, 169, 98, 0.14), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.skill-card:hover::before,
+.service-card:hover::before,
+.project-card:hover::before,
+.exp-card:hover::before,
+.expertise-card:hover::before,
+.blog-card:hover::before,
+.testimonial-card:hover::before,
+.tool-card:hover::before { opacity: 1; }
+
+.skill-card > *,
+.service-card > *,
+.project-card > *,
+.exp-card > *:not(.company-logo),
+.expertise-card > *:not(.expertise-number),
+.blog-card > *,
+.testimonial-card > *,
+.tool-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* These two are meant to stay absolutely positioned in their corner —
+   the generic rule above was flattening them to position:relative,
+   which is why the company logo landed on top of the date text and
+   the expertise number lost its corner placement. */
+.exp-card .company-logo {
+  position: absolute !important;
+  z-index: 2;
+}
+
+.expertise-card .expertise-number {
+  position: absolute !important;
+  z-index: 2;
+}
+
+.skill-card:hover,
+.service-card:hover,
+.project-card:hover,
+.exp-card:hover,
+.expertise-card:hover,
+.blog-card:hover,
+.tool-card:hover {
+  border-color: var(--color-accent) !important;
+  box-shadow: var(--shadow-glow-gold);
+}
+
+/* ==========================================================================
+   UNIVERSAL hover/active transition — every card-like element on the page,
+   guaranteed pure CSS (no JS dependency). JS (motion3d.js) layers a fancier
+   3D tilt on top of this for the main card grid, but this baseline runs
+   everywhere, on every element listed, with or without JS.
+   ========================================================================== */
+
+.skill-card,
+.service-card,
+.project-card,
+.exp-card,
+.expertise-card,
+.blog-card,
+.testimonial-card,
+.tool-card,
+.career-column,
+.about-image-wrapper {
+  /* transform is intentionally NOT transitioned here — motion3d.js drives
+     it every frame via a lerp loop for a smooth glide; stacking a CSS
+     transition on top of that caused a sluggish double-damping lag. */
+  transition: box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+}
+
+.timeline-item,
+.process-item,
+.stat,
+.footer-brand,
+.footer-links,
+.footer-services,
+.footer-connect,
+.contact-info,
+.contact-form,
+.icon-box {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s ease,
+              border-color 0.35s ease,
+              background 0.35s ease;
+}
+
+.timeline-item:hover,
+.stat:hover,
+.footer-brand:hover,
+.footer-links:hover,
+.footer-services:hover,
+.footer-connect:hover {
+  transform: translateY(-5px);
+}
+
+.process-item:hover .icon-box {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.contact-info:hover,
+.contact-form:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.timeline-item:hover::before {
+  background: var(--color-accent-hover);
+  box-shadow: 0 0 12px rgba(201, 169, 98, 0.7);
+}
+
+/* Touch fallback: :active mirrors the hover state so a tap always
+   gives visible feedback even before/without JS running. */
+.skill-card:active,
+.service-card:active,
+.project-card:active,
+.exp-card:active,
+.expertise-card:active,
+.blog-card:active,
+.testimonial-card:active,
+.tool-card:active,
+.career-column:active,
+.timeline-item:active,
+.stat:active,
+.about-image-wrapper:active,
+.footer-brand:active,
+.footer-links:active,
+.footer-services:active,
+.footer-connect:active,
+.contact-info:active,
+.contact-form:active {
+  transform: translateY(-3px) scale(0.99);
+  border-color: var(--color-accent) !important;
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.expertise-number {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.9;
+}
+
+.skill-progress {
+  background: var(--gradient-brand) !important;
+}
+
+/* ==========================================================================
+   Digital Arsenal marquee — kept as auto-scrolling (already animated by
+   the original CSS); just add a subtle 3D tilt to the strip.
+   ========================================================================== */
+
+.arsenal-section { perspective: 1000px; }
+.marquee-row { transform: rotateX(4deg); }
+
+.tool-card .icon { color: var(--color-accent); }
+
+/* ==========================================================================
+   Process section — floating step icons (auto-moving, cheap transform-only)
+   ========================================================================== */
+
+.icon-box {
+  animation: floatY 4s ease-in-out infinite;
+  box-shadow: var(--shadow-glow-gold);
+}
+.process-item:nth-child(2) .icon-box { animation-delay: 0.3s; }
+.process-item:nth-child(3) .icon-box { animation-delay: 0.6s; }
+.process-item:nth-child(4) .icon-box { animation-delay: 0.9s; }
+.process-item:nth-child(5) .icon-box { animation-delay: 1.2s; }
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+/* ==========================================================================
+   Ambient floating shapes — few, small, cheap (transform + opacity only,
+   no blur filter on the element itself to stay light).
+   ========================================================================== */
+
+.float-shape {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 30% 70% 65% 35% / 40% 45% 55% 60%;
+  opacity: 0.35;
+  animation: driftShape 16s ease-in-out infinite;
+  background: radial-gradient(circle at 30% 30%, rgba(201, 169, 98, 0.4), transparent 70%);
+}
+
+@keyframes driftShape {
+  0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50%  { transform: translate3d(14px, -18px, 0) rotate(90deg); }
+  100% { transform: translate3d(0, 0, 0) rotate(180deg); }
+}
+
+.section,
+.arsenal-section,
+.process-section,
+#experience {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Scroll-reveal system (driven by motion3d.js) — extreme 3D entrance.
+   Namespaced as "m3-reveal" / "m3-in" deliberately: the original template
+   (enhance.css) already owns a class called `.reveal` that blurs an element
+   until a class called `.revealed` is added — and nothing in the codebase
+   ever adds `.revealed`. Reusing that name is what silently blurred every
+   card permanently before. Own namespace = no collision, ever.
+   ========================================================================== */
+
+.m3-reveal {
+  opacity: 0;
+  filter: blur(3px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Default / about section / services / footer — gentle rise */
+.m3-reveal,
+.m3-reveal.m3-r-up {
+  transform: translateY(34px) scale(0.97);
+}
+
+/* Career columns, blog cards (odd) — soft glide from the left */
+.m3-reveal.m3-r-left {
+  transform: translateX(-40px) rotateY(-8deg) scale(0.97);
+  transform-origin: left center;
+}
+
+/* Career columns, project/blog cards (even) — soft glide from the right */
+.m3-reveal.m3-r-right {
+  transform: translateX(40px) rotateY(8deg) scale(0.97);
+  transform-origin: right center;
+}
+
+/* Skills, about portrait — gentle tilt-in, not a full flip */
+.m3-reveal.m3-r-flip {
+  transform: rotateY(18deg) scale(0.94);
+}
+
+/* Projects, testimonials, arsenal tools — soft pop in */
+.m3-reveal.m3-r-zoom {
+  transform: scale(0.9);
+}
+
+/* Process steps, experience cards — gentle drop from above */
+.m3-reveal.m3-r-drop {
+  transform: translateY(-30px) scale(0.97);
+}
+
+.m3-reveal.m3-in {
+  opacity: 1;
+  transform: translateY(0) translateX(0) rotateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* CRITICAL: once revealed, hand transition control back to each card's own
+   rule. Without this, `.m3-reveal`'s entrance `transition: transform 0.9s`
+   kept winning the cascade (same specificity, declared later in the file)
+   and silently overrode the cards' intended `transition: box-shadow,
+   border-color` — re-adding a 0.9s CSS transition on `transform` for cards
+   whose hover-tilt is already driven smoothly by JS every frame. The two
+   fought each other on every single frame, which is exactly why hover felt
+   like it needed ~1-2s to "catch up" before anything visible happened.
+   These selectors use two classes (.m3-in + the card class) so they always
+   win regardless of source order. */
+.m3-in.skill-card,
+.m3-in.service-card,
+.m3-in.project-card,
+.m3-in.exp-card,
+.m3-in.expertise-card,
+.m3-in.blog-card,
+.m3-in.testimonial-card,
+.m3-in.tool-card,
+.m3-in.career-column,
+.m3-in.about-image-wrapper {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.m3-in.timeline-item,
+.m3-in.process-item,
+.m3-in.stat,
+.m3-in.footer-brand,
+.m3-in.footer-links,
+.m3-in.footer-services,
+.m3-in.footer-connect,
+.m3-in.contact-info,
+.m3-in.contact-form {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease,
+              background 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .m3-reveal { opacity: 1; transform: none; filter: none; transition: none; }
+  .float-shape, .icon-box, .nav-logo, .hero-name { animation: none !important; }
+}
+
+/* ==========================================================================
+   Custom cursor — lightweight
+   ========================================================================== */
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+}
+
+.cursor-ring {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(201, 169, 98, 0.5);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+}
+
+.cursor-ring.cursor-hover {
+  width: 46px;
+  height: 46px;
+  background: rgba(201, 169, 98, 0.08);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none; }
+}
+
+/* ==========================================================================
+   Contact + footer polish
+   ========================================================================== */
+
+.contact-form {
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+}
+
+.form-input,
+.form-textarea {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 0 3px rgba(201, 169, 98, 0.12);
+}
+
+.modal-content {
+  background: rgba(10, 10, 10, 0.85) !important;
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.modal-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.modal-card:hover { transform: translateY(-3px); }
+
+/* ==========================================================================
+   Boot loader
+   ========================================================================== */
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.page-loader.loaded { opacity: 0; visibility: hidden; }
+
+.page-loader-mark {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.3em;
+  color: var(--color-accent);
+}
